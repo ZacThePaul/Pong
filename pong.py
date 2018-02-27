@@ -1,7 +1,6 @@
 import pygame as pg
 import random
 
-
 disw = 800
 dish = 500
 screen = pg.display.set_mode((disw, dish))
@@ -10,8 +9,6 @@ black = (0,0,0)
 red = (255,0,0)
 
 pg.init()
-
-
 
 class GameRun(object):
     def __init__(self, disw, dish):
@@ -49,9 +46,7 @@ class GameRun(object):
 
         infoGone = False
 
-
         while done == False:
-
 
             for event in pg.event.get():
                 if event.type == pg.QUIT:
@@ -67,7 +62,6 @@ class GameRun(object):
                             start = True
                             infoGone = True
                             rr = random.randint(1,2)
-
 
                 if event.type == pg.KEYUP:
                     y_change = 0
@@ -93,8 +87,6 @@ class GameRun(object):
                 if ball.colliderect(paddle2):
                     ball_x_change = ball_x_change * - 1.5
                     volley += 1
-
-
 
             if bally > paddle1y:
                 paddle1y += 2
@@ -128,10 +120,6 @@ class GameRun(object):
             if paddle2y >= 400:
                 y_change = 0
 
-
-
-
-
             if start == True:
                 if rr == 1:
                     ball_x_change = 2
@@ -151,8 +139,6 @@ class GameRun(object):
 
             volleyLable = playerScoreFont.render('Volley: %s' % volley, 1, red)
 
-
-
             screen.fill(black)
 
             pg.draw.rect(screen, red, (ballx, bally, 10, 10))
@@ -164,33 +150,7 @@ class GameRun(object):
             if infoGone == False:
                 screen.blit(startLabel, (125, 200))
 
-
-
-
-
             pg.display.update()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 if __name__=='__main__':
